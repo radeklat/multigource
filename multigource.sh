@@ -63,7 +63,7 @@ save_patterns_to_file() {
 
     if [[ ${answer} == 'n' ]]; then
         if [[ ! -f ${filename} ]]; then
-            echo "${repositories}" | awk '{print $0","$0}' >${filename}
+            echo "${values}" | awk '{print $0","$0}' >${filename}
         fi
         test_exit 1 "\nEdit ${filename}. Each line is '<match>,<replacement>'. Remove this file to have new one generated.\n"
     fi
@@ -144,7 +144,7 @@ gource ${COMBINED_LOG} \
 	-${RESOLUTION} \
 	--highlight-users \
     --highlight-colour FF8888 \
-	--hide filenames \cp
+	--hide filenames \
     --max-user-speed 100 \
 	--file-extensions \
     --date-format "%d %B %Y" \
